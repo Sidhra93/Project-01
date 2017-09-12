@@ -4,11 +4,12 @@
 
 .board{
   width: 300px;
+  
 }
 
-.top,
-.center,
-.bottom {
+.square {
+  text-align: center;
+  font-size: 80px;
   border: 2px solid black;
   width: 100px;
   height: 100px;
@@ -16,11 +17,17 @@
   float: left;
 }
 
-.square {
-  text-align: center;
-  cursor: pointer;
-  font-size: 80px;
-  color: white;
+.square a {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+
+.square span {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  cursor: not-allowed;
 }
 
 .x-wins,
