@@ -1,7 +1,6 @@
 console.log("Tic - Tac - Toe");
 
 var board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
-var win1 = ["X", "X", "X"];
 
 var rowPlace = 0;
 var colPlace = 0;
@@ -27,8 +26,14 @@ var twoPlayers = function(event){
 }
 
 var checkWinner = function(){
-  if (true) {
-
+  if ((board[0][0] === "X" && board[0][1] === "X" && board[0][2] === "X")) {
+    console.log("winner");
+  } else if ((board[0][0] === "O" && board[0][1] === "O" && board[0][2] === "O")) {
+    console.log("winner");
+  } else if ((board[1][0] === "X" && board[1][1] === "X" && board[1][2] === "X")) {
+    console.log("winner");
+  } else if ((board[1][0] === "O" && board[1][1] === "O" && board[1][2] === "O")) {
+    console.log("winner");
   }
 }
 
@@ -61,3 +66,11 @@ var cloneBoard = gameBoard.innerHTML;
 var resetButton = document.querySelector("button");
 
 gameBoard.addEventListener("click", twoPlayers);
+
+var resetBoard = function(){
+  i = 0;
+  var board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
+  gameBoard.innerHTML = cloneBoard;
+}
+
+resetButton.addEventListener("click", resetBoard);
