@@ -27,61 +27,62 @@ var twoPlayers = function(event){
   }
 }
 
-var checkWinner = function(player){
-  for (var i = 0; i < board.length; i++) {
-    if ((board[i][0] === player && board[i][1] === player && board[i][2] === player)) {
-      console.log("winner");
-      return true;
-    }
-    if ((board[0][i] === player && board[1][i] === player && board[2][i] === player)) {
-      console.log("winner");
-      return true;
-    }
-  }
-  if ((board[0][0] === player && board[1][1] === player && board[2][2] === player)) {
-    console.log("winner");
-    return true;
-  }
-  if ((board[0][2] === player && board[1][1] === player && board[2][0] === player)) {
-    console.log("winner");
-    return true;
-  }
-  return false;
-}
-
 // var onePlayer = function(event){
-//   var position = event.target.textContent.split("");
-//   var row = Number(position[0]) - 1;
-//   var col = Number(position[1]) - 1;
-//   board[row][col] = "X";
-//   event.target.textContent = board[row][col];
-//   event.target.style.color = "black";
-//   computerPlayer()
+//   var row = event.target.parentElement.dataset.positionX;
+//   var col = event.target.parentElement.dataset.positionY;
+//   var player = "X"
+//   board[row][col] = player;
+//   event.target.parentElement.innerHTML = "<span>" + player + "</span>";
+//   computerPlayer();
+//   checkWinner(player);
 // }
 //
 // var computerPlayer = function(){
 //   var randomRow = Math.floor(Math.random() * board.length);
 //   var randomCol = Math.floor(Math.random() * board.length);
-//   if (board[randomRow][randomCol] === " ") {
-//     board[randomRow][randomCol] = "O";
-//     event.target.textContent = board[randomRow][randomCol];
-//     event.target.style.color = "black";
+//   var player = "O"
+//   if (board[randomRow][randomCol] === "") {
+//     board[randomRow][randomCol] = player;
+//     event.target.parentElement.innerHTML = "<span>" + player + "</span>";
 //   } else {
 //     computerPlayer();
 //   }
+//   checkWinner(player);
 // }
 
+var checkWinner = function(player){
+  for (var i = 0; i < board.length; i++) {
+    if ((board[i][0] === player && board[i][1] === player && board[i][2] === player)) {
+      return true;
+    }
+    if ((board[0][i] === player && board[1][i] === player && board[2][i] === player)) {
+      return true;
+    }
+  }
+  if ((board[0][0] === player && board[1][1] === player && board[2][2] === player)) {
+    return true;
+  }
+  if ((board[0][2] === player && board[1][1] === player && board[2][0] === player)) {
+    return true;
+  }
+  return false;
+}
 
-//=============================================================================
+//==================================
 // PRESENTATION FUNCTIONS
-//=============================================================================
+//==================================
 
-var gameBoard = document.querySelector(".board");
-var cloneBoard = gameBoard.innerHTML;
+var title = document.querySelector(".title");
+var playButton = document.querySelector(".title button");
+var restart = document.querySelector(".nav .restart-button")
+var scoreDiv = document.querySelector(".scores");
 var xScore = document.querySelector(".x-wins span");
 var oScore = document.querySelector(".o-wins span");
 var tieScore = document.querySelector(".ties span");
-var winnerDisplay = document.querySelector(".winner-display p")
+var gameBoard = document.querySelector(".board");
+var cloneBoard = gameBoard.innerHTML;
+var winnerDisplay = document.querySelector(".winner-display p");
+
 
 var winner = function(player){
   if (player === "X") {
@@ -104,18 +105,36 @@ var tie = function(){
   setTimeout(clearBoard, 1000);
 }
 
+var startGame = function(){
+  scoreDiv.style = "display:block";
+  gameBoard.style = "display:block";
+  title.style = "display:none";
+  clearBoard();
+}
+
+var restartGame = function(){
+  xWins = 0;
+  oWins = 0;
+  ties = 0;
+  xScore.textContent = xWins;
+  oScore.textContent = oWins;
+  tieScore.textContent = ties;
+  clearBoard();
+}
+
 var clearBoard = function(){
   turn = 0;
   board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
   gameBoard.innerHTML = cloneBoard;
   setTimeout(function(){
     winnerDisplay.textContent = "";
-  }, 2000);
+  }, 1200);
   var gameBoardSquares = document.querySelectorAll(".board a")
   gameBoardSquares.forEach(function(square){
     square.addEventListener("click", twoPlayers);
   });
 }
 
+playButton.addEventListener("click", startGame);
 
-clearBoard();
+restart.addEventListener("click", restartGame);

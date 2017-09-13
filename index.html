@@ -7,13 +7,21 @@
     <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
   </head>
   <body>
-    <div class="scores">
+    <div class="nav">
+      <button class="restart-button">Restart</button>
+      <button class="instructions">Instructions</button>
+    </div>
+    <div class="scores" style="display:none;">
       <div class="x-wins"><p>X: <span>0</span></p></div>
       <div class="ties"><p>Ties: <span>0</span></p></div>
       <div class="o-wins"><p>O: <span>0</span></p></div>
     </div><!--end of scores div-->
     <div class="container">
-      <div class="board">
+      <div class="title">
+        <img src="images/icon.png" alt="tic tac toe icon" width="200"><br>
+        <button class="start">Play</button>
+      </div><!--end of title div-->
+      <div class="board" style="display:none;">
         <div class="line-one">
           <div class="square top left" data-position-x="0" data-position-y="0"><a href="#"></a></div><!--end of square top left div-->
           <div class="square top" data-position-x="0" data-position-y="1"><a href="#"></a></div><!--end of square top div-->
