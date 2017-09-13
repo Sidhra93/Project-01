@@ -20,6 +20,11 @@ var twoPlayers = function(event){
   board[row][col] = player;
   event.target.parentElement.innerHTML = "<span>" + player + "</span>";
   var result = checkWinner(player);
+  if (result === true) {
+    winner(player);
+  }else if (result === false && turn === 9) {
+    tie();
+  }
 }
 
 var checkWinner = function(player){
@@ -68,21 +73,49 @@ var checkWinner = function(player){
 
 
 //=============================================================================
+// PRESENTATION FUNCTIONS
+//=============================================================================
+
 var gameBoard = document.querySelector(".board");
 var cloneBoard = gameBoard.innerHTML;
-var resetButton = document.querySelector("button");
+var xScore = document.querySelector(".x-wins span");
+var oScore = document.querySelector(".o-wins span");
+var tieScore = document.querySelector(".ties span");
+var winnerDisplay = document.querySelector(".winner-display p")
 
+var winner = function(player){
+  if (player === "X") {
+    xWins++;
+    xScore.textContent = xWins;
+    winnerDisplay.textContent = "X Wins!";
+    setTimeout(clearBoard, 1000);
+    return;
+  }
+  oWins++;
+  oScore.textContent = oWins;
+  winnerDisplay.textContent = "O Wins!";
+  setTimeout(clearBoard, 1000);
+}
 
+var tie = function(){
+  ties++;
+  tieScore.textContent = ties;
+  winnerDisplay.textContent = "It's a Tie!";
+  setTimeout(clearBoard, 1000);
+}
 
-var resetBoard = function(){
+var clearBoard = function(){
   turn = 0;
   board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
   gameBoard.innerHTML = cloneBoard;
+  setTimeout(function(){
+    winnerDisplay.textContent = "";
+  }, 2000);
   var gameBoardSquares = document.querySelectorAll(".board a")
   gameBoardSquares.forEach(function(square){
     square.addEventListener("click", twoPlayers);
   });
 }
 
-resetBoard();
-resetButton.addEventListener("click", resetBoard);
+
+clearBoard();
