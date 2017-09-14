@@ -3,13 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
   </head>
   <body>
     <div class="nav">
       <button class="restart-button">Restart</button>
-      <button class="instructions">Instructions</button>
+      <button class="instructions-button">Instructions</button>
+    </div>
+    <div class="instructions">
+      <p>The objective of Tic-Tac-Toe is to get three in a row. You play on a three by three game board. The first player is known as X and the second is O. Players alternate placing Xs and Os on the game board until either player has three in a row or all nine squares are filled.</p>
     </div>
     <div class="scores" style="display:none;">
       <div class="x-wins"><p>X: <span>0</span></p></div>
@@ -19,29 +22,34 @@
     <div class="container">
       <div class="title">
         <img src="images/icon.png" alt="tic tac toe icon" width="200"><br>
-        <button class="start">Play</button>
+        <button class="one-player">1 Player</button><br>
+        <button class="two-players">2 Players</button>
       </div><!--end of title div-->
       <div class="board" style="display:none;">
-        <div class="line-one">
+        <div class="row-one">
           <div class="square top left" data-position-x="0" data-position-y="0"><a href="#"></a></div><!--end of square top left div-->
           <div class="square top" data-position-x="0" data-position-y="1"><a href="#"></a></div><!--end of square top div-->
           <div class="square top right" data-position-x="0" data-position-y="2"><a href="#"></a></div><!--end of square top right div-->
-        </div><!--end of line-one div-->
-        <div class="line-two">
+        </div><!--end of row-one div-->
+        <div class="row-two">
           <div class="square center left" data-position-x="1" data-position-y="0"><a href="#"></a></div><!--end of square center left div-->
           <div class="square center"  data-position-x="1" data-position-y="1"><a href="#"></a></div><!--end of square center div-->
           <div class="square center right"  data-position-x="1" data-position-y="2"><a href="#"></a></div><!--end of square center right div-->
-        </div><!--end of line-two div-->
-        <div class="line-three">
+        </div><!--end of row-two div-->
+        <div class="row-three">
           <div class="square bottom left"  data-position-x="2" data-position-y="0"><a href="#"></a></div><!--end of square bottom left div-->
           <div class="square bottom"  data-position-x="2" data-position-y="1"><a href="#"></a></div><!--end of square bottom div-->
           <div class="square bottom right"  data-position-x="2" data-position-y="2"><a href="#"></a></div><!--end of square bottom right div-->
-        </div><!--end of line-three div-->
+        </div><!--end of row-three div-->
+        <div class="winner-display">
+          <p></p>
+          <button class="play-again">Play Again</button>
+        </div><!--end of winner-display div-->
       </div><!--end of board div-->
     </div><!--end of container div-->
-    <div class="winner-display">
-      <p></p>
-    </div>
-    <script src="gameapp.js"></script>
+    <footer>
+      <span>Developed by Sidhra</span>
+    </footer>
+    <script src="JS/gameapp.js"></script>
   </body>
 </html>
