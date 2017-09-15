@@ -2,8 +2,6 @@ console.log("Tic - Tac - Toe");
 
 var board = [["", "", ""], ["", "", ""], ["", "", ""]];
 
-var rowPlace = 0;
-var colPlace = 0;
 var turn = 0;
 var ties = 0;
 var xWins = 0;

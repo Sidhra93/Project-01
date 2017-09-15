@@ -39,6 +39,7 @@ button:focus {
   padding: 0 20px;
   text-align: center;
   font-size: 20px;
+  letter-spacing: 2px;
   opacity: 0;
   transition: all 300ms;
 }
@@ -64,7 +65,7 @@ button:focus {
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-top: 50px;
-  padding: 10px 50px;
+  padding: 10px 40px;
 }
 
 .title button:hover {
@@ -234,4 +235,5 @@ footer span {
   position: absolute;
   right: 10px;
   bottom: 10px;
+  letter-spacing: 2px;
 }
