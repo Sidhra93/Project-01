@@ -21,4 +21,10 @@ I used a pseudeocode to approach the problem starting with the logic, and drawin
 
 ---
 
+#### Cross browser
+
+I tested the game on Chrome, Firefox, Microsoft Edge and Internet Explorer. Although it worked fine in Chrome and Firefox, it didn't function on Edge and IE.
+
+
+
 You can play the game [here](https://sidhra93.github.io/Project-01/.)
