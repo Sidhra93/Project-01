@@ -21,4 +21,4 @@ I used a pseudeocode to approach the problem starting with the logic, and drawin
 
 ---
 
-You can play the game [here](#)
+You can play the game [here](https://sidhra93.github.io/Project-01/.)
