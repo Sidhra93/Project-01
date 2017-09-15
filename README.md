@@ -17,7 +17,7 @@ The requirements of the project were to;
 
 ---
 
-I used a pseudeocode to approach the problem starting with the logic, and drawings to come up with a basic design. Starting with the logic of the game done in the console, I continued on to include HTML and DOM manipulation to bring it alive.
+I used a pseudeocode to approach the problem starting with the logic, and drawings to come up with a basic design. Starting with the logic of the game done in the console as planned, I continued on to include HTML and DOM manipulation to bring the game to life.
 
 ---
 
